@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from "react";
+import useInputState from "../hooks/useInputState"; //make sure this is right. 
 
 function SearchForm(props) {
-    const [value, setValue] = useState("");
+    //const [value, handleChange, reset] = useInputState("")
 
-    //Both of these functions use the const defined above. 
-    const handleChange = event => {
-    setValue(event.target.value);
-    };
-
-    const handleSubmit = event => {
-        alert("done")
-        };
-
-    return(
-<form onSubmit={handleSubmit}>
-    <input value={value} onChange={handleChange}>
-    </input>
-    <button>
-        submit
-    </button>
-    </form>
+    return (
+        <form onSubmit={(event) => {
+            event.preventDefault();
+            props.handleSubmit()
+        }}   >
+            <h3>Search Form component</h3>
+            <input value={props.value} onChange={props.handleChange}>
+            </input>
+            <button>
+                submit
+            </button>
+        </form>
     )
 }
 

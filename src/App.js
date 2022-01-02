@@ -1,4 +1,5 @@
-import ResultList from "./components/ResultList";
+
+import WorkoutApp from "./components/WorkoutApp";
 
 import './App.css';
 
@@ -6,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-     <ResultList />
+      <WorkoutApp />
     </div>
   );
 }

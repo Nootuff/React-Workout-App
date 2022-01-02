@@ -42,9 +42,9 @@ function ResultList(props) {
 
     return (
         <div>
-            <SearchForm />
+           <h3>Results List component</h3>
             <button onClick={work} >Click</button>
-            <h2>List here:</h2>
+            
             <ul>
                 {allData}
             </ul>
