@@ -14,7 +14,7 @@ function WorkoutApp() {
         setValue(event.target.value);
     };
 
-    var urlHolder = `https://exercisedb.p.rapidapi.com/exercises/name/${value}` //Got to find some way to add  %20 into any white space in value
+    var urlHolder = `https://exercisedb.p.rapidapi.com/exercises/name/${value.replace(/\s\s+/g, '%20').toLowerCase()}`;
     var apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
 
     var options = {

@@ -1,8 +1,8 @@
 function NoValue() {
     return (
-        <div>
+        <li>
            Please enter the exercise you wish to search for.  
-        </div>
+        </li>
     )
 }
 

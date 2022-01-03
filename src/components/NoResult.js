@@ -1,9 +1,9 @@
 function NoResult({noResult}) {
 
     return (
-        < div>
+        < li>
            <p>Sorry, nothing could be found under: {noResult} </p>
-        </div>
+        </li>
     )
 }
 
