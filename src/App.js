@@ -1,7 +1,7 @@
 
 import WorkoutApp from "./components/WorkoutApp";
 
-import './App.css';
+import './styles/App.css';
 
 
 function App() {

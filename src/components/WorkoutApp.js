@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 const axios = require('axios').default;
 
 
-function WorkoutApp(props) {
+function WorkoutApp() {
 
     const [value, setValue] = useState("");
     const [result, setResult] = useState(""); //Data should be the returned api result
