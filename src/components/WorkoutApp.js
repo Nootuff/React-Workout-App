@@ -28,14 +28,18 @@ var apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
     };
 
 const handleSubmitFunc = (tester) => {
+    if(value !== ""){
     return axios.request(options).then(function (response) { //Response appears to be the argument to hold the actual returned results
         //console.log(response.result);
-        setResult( response.data);
+        setResult(response.data);
         console.log(result)
     }).catch(function (error) {
         console.error(error);
     });
     //alert(urlTest) 
+} else {
+    setResult(""); 
+}
 }
 
     return (

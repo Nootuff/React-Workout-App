@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Result from "./Result";
+import NoValue from "./NoValue";
 
 function ResultList({data}) {
 
-    const resultList = (data === "") ? "nothing" : data.map((value, index) => //Got to find some way to capitlize first word in name.
+    const resultList = (data === "") ? <NoValue /> : data.map((value, index) => //Got to find some way to capitlize first word in name.
         <Result
             data={value}
             key={value.id}
