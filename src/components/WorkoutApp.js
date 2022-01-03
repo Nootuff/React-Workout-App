@@ -27,10 +27,10 @@ var apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
         }
     };
 
-const handleSubmitFunc = (tester) => {
+const handleSubmitFunc = () => {
     if(value !== ""){
     return axios.request(options).then(function (response) { //Response appears to be the argument to hold the actual returned results
-        //console.log(response.result);
+        //maybe put the if statement in here?
         setResult(response.data);
         console.log(result)
     }).catch(function (error) {
@@ -50,7 +50,7 @@ const handleSubmitFunc = (tester) => {
              handleSubmit={handleSubmitFunc}
              value={value}
             />
-            <ResultList data ={result} />
+            <ResultList data ={result} searchTerm={value} />
             {/*<p>{value}</p>*/}
         </div>
     )
