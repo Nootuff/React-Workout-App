@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import Result from "./Result";
-import NoResult from "./NoResult";
 import NoValue from "./NoValue";
 
-function ResultList({data, noResult}) {
+function ResultList({ data, searchTags }) {
 
-    const resultList = (data === "") ? <NoValue /> : (!data.length ) ? <NoResult noResult={noResult} /> : data.map((value) => //Got to find some way to capitlize first word in name.
+    const resultList = (data === "") ? <NoValue /> : data.map((value) => 
         <Result
             data={value}
             key={value.id}
         />
     )
 
+    const message = (data === "") ? null : <p>{(!data.length) ? "Sorry, " : null}<b>{data.length}</b> results for exercises {(searchTags.searchedBy == "name") ? "containing the word:" : (searchTags.searchedBy == "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</p>;
+
     return (
         <div>
             <h3>Results List component</h3>
-            <p>{data.length} results.</p>
+            {message}
             <ul>
                 {resultList}
             </ul>
-           
         </div>
     )
 }

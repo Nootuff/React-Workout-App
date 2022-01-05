@@ -1,8 +1,9 @@
 function NoValue() {
     return (
-        <li>
-           Please enter the exercise you wish to search for.  
-        </li>
+        <div>
+            <h1>NoValue component</h1>
+           Please enter the exercise, target muscle group or equipment you wish to search for.  
+        </div>
     )
 }
 

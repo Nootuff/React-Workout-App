@@ -1,25 +1,41 @@
 import React, { useState } from 'react';
 import ResultList from "./ResultList";
 import SearchForm from "./SearchForm";
+
 const axios = require('axios').default;
 
+const initialSearchTerms = {
+    searchTerm: "",
+    searchBy: "name"
+};
+
+const initialSearchTags = {
+    searchedTerm: "",
+    searchedBy: ""
+};
 
 function WorkoutApp() {
 
-    const [value, setValue] = useState("");
+    const [values, setValues] = useState(initialSearchTerms);
     const [result, setResult] = useState("");
-    const [noResult, setNoResult] = useState("");
+    const [searchTags, setSearchTags] = useState(initialSearchTags);
+    const [show, setShow] = useState(false);
 
-    const handleChangeFunc = event => {
-        setValue(event.target.value);
+    const handleChangeFunc = (event) => {
+        const { name, value } = event.target; //Destructured const
+        setValues({
+            ...values,
+            [name]: value,
+        });
     };
 
-    var urlHolder = `https://exercisedb.p.rapidapi.com/exercises/name/${value.replace(/\s\s+/g, '%20').toLowerCase()}`;
-    var apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
+    const searchTerm = values.searchTerm.replace(/\s\s+/g, '%20').toLowerCase();
+    const searchBy = values.searchBy;
+    const apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
 
-    var options = {
+    const options = {
         method: 'GET',
-        url: urlHolder, //`https://exercisedb.p.rapidapi.com/exercises/name/${searchTerm}`
+        url: `https://exercisedb.p.rapidapi.com/exercises/${searchBy}/${searchTerm}`,
         headers: {
             'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
             'x-rapidapi-key': apiHolder  //"123"
@@ -27,15 +43,17 @@ function WorkoutApp() {
     };
 
     const handleSubmitFunc = () => { //Activates on form submission
-        if (value !== "") {
-            return axios.request(options).then(function (response) { //Response appears to be the argument to hold the actual returned results from the axios.request
+        setShow(true)
+        console.log(options.url)
+        if (values.searchTerm !== "") {
+            return axios.request(options).then(function (response) { //Response is the argument to hold the actual returned results from the axios.request
                 setResult(response.data); //The results of the axios reqeust is set to state.
-                if (response.data.length == 0) {
-                    setNoResult(value); //If there are no results, save the search term for the NoResult component to use.
-                }
+                setSearchTags({ searchedTerm: values.searchTerm, searchedBy: values.searchBy } );
                 console.log(response.data)
                 //console.log("Length: " + response.data.length)
             }).catch(function (error) {
+                setResult([]);
+                setSearchTags({ searchedTerm: values.searchTerm, searchedBy: values.searchBy });
                 console.error(error);
             });
         } else {
@@ -43,18 +61,17 @@ function WorkoutApp() {
         }
     }
 
+const body = (show) ? <ResultList data={result} searchTags={searchTags} /> : <h1>Please enter a search term</h1> 
+
     return (
         <div>
             <h3>App parent component</h3>
             <SearchForm
                 handleChange={handleChangeFunc}
                 handleSubmit={handleSubmitFunc}
-                value={value}
+                values={values}
             />
-            <ResultList
-                data={result}
-                noResult={noResult}
-            />
+           {body}
         </div>
     )
 }
