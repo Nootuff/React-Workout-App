@@ -8,6 +8,7 @@ function Result({data}) {
             <img src={data.gifUrl} alt="Form demonstration animation" ></img>
             <p><b>Target:</b> {capitalizer(data.target)}</p>
             <p><b>Equipment required:</b> {capitalizer(data.equipment)}</p>
+            <button>Save to favs</button>
         </li>
     )
 }

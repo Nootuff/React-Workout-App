@@ -1,15 +1,29 @@
 import React, { useState } from "react";
 
-export default initialValue => {
-    const [value, setValue] = useState(initialValue);
-
-    const handleChange = event => {
-        setValue(event.target.value);
-    };
-
-    const reset = () => { //Sets the value to "", empty. 
-        setValue("");
-    };
-
-    return [value, handleChange, reset]; //Note the order, it must be the same in every file you import this into 
+const initialSearchTerms = {
+    searchTerm: "",
+    searchBy: "name"
 };
+
+export default input => {
+    const [values, setValues] = useState(initialSearchTerms);
+
+    const searchByHolder = values.searchBy;
+    const searchTermHolder = values.searchTerm.replace(/\s\s+/g, '%20').toLowerCase();
+
+    const handleChangeFunc = (event) => {
+        const { name, value } = event.target; //Destructured const
+        setValues({
+            ...values,
+            [name]: value,
+        });
+    };
+
+    /*
+    const alerterFunc = () => { 
+        alert("useInputState")
+    }
+    */
+
+    return [values, searchByHolder, searchTermHolder, handleChangeFunc];
+}

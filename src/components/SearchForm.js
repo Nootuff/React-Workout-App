@@ -1,12 +1,11 @@
 import React from "react";
 
-
 function SearchForm(props) {
 
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
-            props.handleSubmit()
+            props.handleSubmit( props.values, props.searchByHolder, props.searchTermHolder )
         }}   >
             <h3>Search Form component</h3>
             <label htmlFor="searchBy">Search by: </label>
