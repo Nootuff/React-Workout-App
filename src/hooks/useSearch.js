@@ -28,18 +28,15 @@ export default search => {
             }
         }; 
 
-        //console.log("handleSubmitFunc activation")
-        //alerterFunc()
-        //console.log("this is the values ")
         if (valuesParam.searchTerm !== "") { //valuesParam holds "values" passed from useInputState.
             return axios.request(options).then(function (response) { //Response is the argument to hold the actual returned results from the axios.request
                 setResult(response.data); //The results of the axios reqeust is set to state.
-                setSearchTags({ searchedTerm: valuesParam.searchTerm, searchedBy: valuesParam.searchBy } );
-                //console.log(response.data)
+                setSearchTags( { searchedTerm: valuesParam.searchTerm, searchedBy: valuesParam.searchBy } );
+                console.log(response.data)
                 
                 //console.log("Length: " + response.data.length)
             }).catch(function (error) {
-                setResult([]);
+                setResult([]); //Sets result to an empty array so this can be detected in the results list & used to determine whether const message should be rendered. 
                 setSearchTags({ searchedTerm: valuesParam.searchTerm, searchedBy: valuesParam.searchBy });
                 console.error(error);
             });

@@ -1,4 +1,4 @@
-function Result({data}) {
+function Result({data, save}) {
 
     const capitalizer = (input) => input.charAt(0).toUpperCase() + input.slice(1);
 
@@ -8,7 +8,7 @@ function Result({data}) {
             <img src={data.gifUrl} alt="Form demonstration animation" ></img>
             <p><b>Target:</b> {capitalizer(data.target)}</p>
             <p><b>Equipment required:</b> {capitalizer(data.equipment)}</p>
-            <button>Save to favs</button>
+            <button onClick={() => {save(data)}}>Save to favs</button>
         </li>
     )
 }

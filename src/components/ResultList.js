@@ -1,12 +1,13 @@
 import Result from "./Result";
 import NoValue from "./NoValue";
 
-function ResultList({ data, searchTags }) {
+function ResultList({ data, searchTags, save }) {
 
     const resultList = (data === "") ? <NoValue /> : data.map((value) => 
         <Result
             data={value}
             key={value.id}
+            save= {save}
         />
     );
 
