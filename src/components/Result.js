@@ -1,14 +1,20 @@
-function Result({data, save}) {
+import useLocalStorageState from "../hooks/useLocalStorageState"
+
+function Result(props) {
+
+    const [favs] = useLocalStorageState();
 
     const capitalizer = (input) => input.charAt(0).toUpperCase() + input.slice(1);
 
     return (
-        <li id={data.id}>
-            <h3>{capitalizer(data.name)}</h3>
-            <img src={data.gifUrl} alt="Form demonstration animation" ></img>
-            <p><b>Target:</b> {capitalizer(data.target)}</p>
-            <p><b>Equipment required:</b> {capitalizer(data.equipment)}</p>
-            <button onClick={() => {save(data)}}>Save to favs</button>
+        <li id={props.data.id}>
+            <h3>{capitalizer(props.data.name)}</h3>
+            current favs: {favs.length}
+            <img src={props.data.gifUrl} alt="Form demonstration animation" ></img>
+            <p><b>Target:</b> {capitalizer(props.data.target)}</p>
+            <p><b>Equipment required:</b> {capitalizer(props.data.equipment)}</p>
+            <button onClick={() => {props.remove(props.data)}}>Remove from Favs</button>
+            <button onClick={() => {props.save(props.data)}}>Save to favs</button>
         </li>
     )
 }
