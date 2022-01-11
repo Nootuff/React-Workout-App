@@ -11,15 +11,10 @@ export default save => {
     }
 
     
-    const removeFunc = (value) => { //Something like this
-        
+    const removeFunc = (value) => { 
         let newFavs = favs.filter(test => test.id !== value.id) 
-        
         setFavs(newFavs)
         window.localStorage.setItem('favExercises', JSON.stringify(newFavs));
-        
-       //alert("remove")
-      //alert(value.id)
     }
 
     return [favs, saveFunc, removeFunc];

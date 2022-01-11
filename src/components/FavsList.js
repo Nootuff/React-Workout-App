@@ -1,13 +1,11 @@
 import Result from "./Result";
-//import Fav from "./Fav";
 
-function FavsList({ data, save, remove }) {
+function FavsList({ data, remove }) {
 
     const favsList = data.map((value) =>
         <Result
             data={value}
             key={value.id}
-            save={save}
             remove={remove}
         />
     );
