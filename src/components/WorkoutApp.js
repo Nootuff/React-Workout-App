@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ResultList from "./ResultList";
 import FavsList from "./FavsList";
 import Loading from "./Loading";
+import Pagination from './Pagination';
 //import Result from "./Result";
 import SearchForm from "./SearchForm";
 import useInputState from "../hooks/useInputState";
@@ -88,6 +89,7 @@ function WorkoutApp() {
                    
                 </div>
             }
+            <Pagination /*postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} */ />
         </div>
     )
 }
