@@ -1,33 +1,29 @@
 import React from 'react';
 
 
-function Pagination(/*{ postsPerPage, totalPosts, paginate }*/) {
+function Pagination({ postsPerPage, totalPosts, paginate }) {
 
-    const pageNumbers = [];
+  const pageNumbers = [];
 
-    /*
-    for(let i = 1; i<=Math.ceil(totalPosts / postsPerPage); i++){
-      pageNumbers.push(i);
-    }
-    */
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-return (
+  return (
     <div >
-      <h1>Pagination menu</h1>
+      <h1>Paginator</h1>
       <ul>
-      {/*
-     {pageNumbers.map(number =>(
-       <li key={number}>
-<a onClick={() => paginate(number)} href="!#">
-  {number}
-</a>
-       </li>
-     ))}
-     */}
+        {pageNumbers.map(number => (
+          <li key={number}>
+            <p onClick={() => paginate(number)}>
+              {number}
+            </p>
+          </li>
+        ))}
       </ul>
     </div>
 
-);
+  );
 
 }
 

@@ -9,7 +9,7 @@ function SearchForm(props) {
         <form onSubmit={(event) => {
             event.preventDefault();
             props.handleSubmit(props.values, props.searchByHolder, props.searchTermHolder);
-            props.setLoading(true);
+            if (props.values.searchTerm !== ""){props.setLoading(true);}
         }}>
             <h3>Search Form component</h3>
             <label htmlFor="searchBy">Search by: </label>

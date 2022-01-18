@@ -1,7 +1,7 @@
 import Result from "./Result";
 import NoValue from "./NoValue";
 
-function ResultList({ data, searchTags, save, remove }) {
+function ResultList({ data, searchTags, numResults, save, remove }) {
 
     const resultList = (data === "") ? <NoValue /> : data.map((value) => 
         <Result
@@ -12,7 +12,7 @@ function ResultList({ data, searchTags, save, remove }) {
         />
     );
 
-    const message = (data === "") ? null : <p>{(!data.length) ? "Sorry, " : null}<b>{data.length}</b> results for exercises {(searchTags.searchedBy === "name") ? "containing the word:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</p>;
+    const message = (data === "") ? null : <p>{(!data.length) ? "Sorry, " : null}<b>{numResults}</b> results for exercises {(searchTags.searchedBy === "name") ? "containing the word:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</p>;
 
     return (
         <div>

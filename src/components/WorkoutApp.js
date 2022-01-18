@@ -62,9 +62,45 @@ function WorkoutApp() {
     );
     */
 
-    const favsList = (favs.length) ? <FavsList data={favs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>;
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5);
 
-    const resultList = (show) ? <ResultList data={result} searchTags={searchTags} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1>
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+    const currentPosts = result.slice(indexOfFirstPost, indexOfLastPost);
+    const currentFavs = favs.slice(indexOfFirstPost, indexOfLastPost);
+
+    const favsList = (favs.length) ? <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>;
+
+    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1>
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber) 
+       /* if(favsMode){
+            setFavsMode(favsMode)
+        }*/
+    console.log(pageNumber)
+    }
+
+    let pagination;// = <Pagination /*postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} */ />;
+
+    if (!favsMode) { //Display normal result paginator
+       if(!show){
+        pagination = "null";
+       } else if(result.length === 0){
+        pagination = "null";
+       } else {
+        pagination = <Pagination postsPerPage={postsPerPage} totalPosts={result.length} paginate={paginate} />
+       }
+    } else if (favsMode) { //favsMode paginator
+        if (favs.length === 0) {
+            pagination = "null";
+        } else {
+            pagination = <Pagination postsPerPage={postsPerPage} totalPosts={favs.length} paginate={paginate}  />
+        }
+    }
 
     return (
         <div>
@@ -85,11 +121,11 @@ function WorkoutApp() {
                         searchTermHolder={searchTermHolder}
                         values={values}
                     />
-                     {(loading) ? <Loading /> : <div>{resultList}</div>}
-                   
+                    {(loading) ? <Loading /> : <div>{resultList}</div>}
+
                 </div>
             }
-            <Pagination /*postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} */ />
+            {pagination}
         </div>
     )
 }
