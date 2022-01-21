@@ -106,7 +106,7 @@ function WorkoutApp() {
         <div>
             <h3>App parent component</h3>
 
-            <button onClick={() => { setFavsMode(!favsMode) }}>Change Favs Mode</button>
+            <button onClick={() => { setFavsMode(!favsMode); paginate(1) }}>Change Favs Mode</button>
 
             {(favsMode) ? favsList :
 
