@@ -1,0 +1,10 @@
+.Result{
+    border: 1px solid black;
+    height: 100px;
+    transition: height 1s;
+    overflow: hidden;
+}
+
+.Result-expanded{
+    height: 800px;
+}

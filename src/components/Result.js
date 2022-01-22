@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import useLocalStorageState from "../hooks/useLocalStorageState"
+import '../styles/Result.css';
+
 
 function Result(props) {
 
     const [favdStatus, setFavdStatus] = useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const [favs] = useLocalStorageState(); //Imports the favd exercises in localStorage so it ca 
 
@@ -17,7 +20,8 @@ useEffect(() => { // Can the for loop & the favdStatus  be moved to a hook?
         }}, []);
 
     return (
-        <li id={props.data.id}>
+        <li id={props.data.id} className= {`Result ${(expanded) ? "Result-expanded" : ""} `}>
+            <button onClick={() => {setExpanded(!expanded)}}>V</button>
             <h3>{capitalizer(props.data.name)}</h3>            
             <img src={props.data.gifUrl} alt="Form demonstration animation" ></img>
             <p><b>Target:</b> {capitalizer(props.data.target)}</p>
