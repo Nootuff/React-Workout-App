@@ -1,10 +1,9 @@
+import '../styles/Loading.css';
+
 function Loading() {
 
-//Have a good animation here. 
     return (
-        <div>
-           <h1 style={{color: "red"}}>LOADING... LOADING... LOADING... LOADING... LOADING...</h1>
-        </div>
+<div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     )
 }
 
