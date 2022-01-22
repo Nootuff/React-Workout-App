@@ -74,14 +74,11 @@ function WorkoutApp() {
 
     const favsList = (favs.length) ? <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>;
 
-    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1>
+    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1> //If no results have been generated, show this text. 
 
-    const paginate = (pageNumber) => {
+    const paginate = (pageNumber) => { //See if this function can be moved to a hook. 
         setCurrentPage(pageNumber) 
-       /* if(favsMode){
-            setFavsMode(favsMode)
-        }*/
-    console.log(pageNumber)
+   // console.log("page number is " + pageNumber)
     }
 
     let pagination;// = <Pagination /*postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} */ />;
@@ -92,20 +89,19 @@ function WorkoutApp() {
        } else if(result.length === 0){
         pagination = "null";
        } else {
-        pagination = <Pagination postsPerPage={postsPerPage} totalPosts={result.length} paginate={paginate} />
+        pagination = <Pagination postsPerPage={postsPerPage} totalPosts={result.length} paginate={paginate} currentPage={currentPage} /> //Got to be some way to make this more elegant. 
        }
     } else if (favsMode) { //favsMode paginator
         if (favs.length === 0) {
             pagination = "null";
         } else {
-            pagination = <Pagination postsPerPage={postsPerPage} totalPosts={favs.length} paginate={paginate}  />
+            pagination = <Pagination postsPerPage={postsPerPage} totalPosts={favs.length} paginate={paginate} currentPage={currentPage} />
         }
     }
 
     return (
         <div>
             <h3>App parent component</h3>
-
             <button onClick={() => { setFavsMode(!favsMode); paginate(1) }}>Change Favs Mode</button>
 
             {(favsMode) ? favsList :
