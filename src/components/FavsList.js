@@ -1,4 +1,5 @@
 import Result from "./Result";
+import Box from '@mui/material/Box';
 
 function FavsList({ data, remove }) {
 
@@ -11,12 +12,12 @@ function FavsList({ data, remove }) {
     );
 
     return (
-        <div>
+        <Box>
             <h1>FavsList Component</h1>
             <ul>
                 {favsList}
             </ul>
-        </div>
+        </Box>
     )
 }
 

@@ -1,5 +1,5 @@
 .Result{
-    border: 1px solid black;
+    border: 1px solid blue;
     height: 100px;
     transition: height 1s;
     overflow: hidden;

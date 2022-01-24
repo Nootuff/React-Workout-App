@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Pagination.css';
+import Box from '@mui/material/Box';
 
 function Pagination({ postsPerPage, totalPosts, paginate, currentPage }) {
 
@@ -10,7 +11,7 @@ function Pagination({ postsPerPage, totalPosts, paginate, currentPage }) {
   }
 
   return (
-    <div >
+    <Box className="Pagination">
       <h1>Paginator</h1>
       <ul>
         {pageNumbers.map(number => (
@@ -22,7 +23,7 @@ function Pagination({ postsPerPage, totalPosts, paginate, currentPage }) {
 
         ))}
       </ul>
-    </div>
+    </Box>
 
   );
 

@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import Pagination from './Pagination';
 //import Result from "./Result";
 import SearchForm from "./SearchForm";
+import Header from "./Header";
 import useInputState from "../hooks/useInputState";
 import useSearch from "../hooks/useSearch";
 import useLocalStorageState from "../hooks/useLocalStorageState";
@@ -20,6 +21,8 @@ function WorkoutApp() {
     const [favs, saveFunc, removeFunc] = useLocalStorageState();
 
     const [favsMode, setFavsMode] = useToggle();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5);
 
     //const [loading] = useLoading();
 
@@ -63,8 +66,7 @@ function WorkoutApp() {
     */
 
     
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(5);
+ 
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -101,8 +103,8 @@ function WorkoutApp() {
 
     return (
         <div>
-            <h3>App parent component</h3>
-            <button onClick={() => { setFavsMode(!favsMode); paginate(1) }}>Change Favs Mode</button>
+            <Header favsMode={favsMode} setFavsMode={setFavsMode} paginate={paginate} />
+            {/*<button onClick={() => { setFavsMode(!favsMode); paginate(1) }}>Change Favs Mode</button>*/}
 
             {(favsMode) ? favsList :
 
