@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { blue, red } from '@mui/material/colors';
 
 function Header({ favsMode, setFavsMode, paginate }) {
 
@@ -24,12 +25,11 @@ function Header({ favsMode, setFavsMode, paginate }) {
                     </Typography>
                     <Button
                         sx={{
-                            backgroundColor: (favsMode) ? "red" : "blue",
+                            backgroundColor: (favsMode) ?  red[800] :  blue[500],
                             color: "#FFFEFE",
                             textAlign: "left"
                         }}
                         variant="outlined"
-                        color="inherit"
                         onClick={() => { setFavsMode(!favsMode); paginate(1) }}
                     >
                         {(favsMode) ? "Back to search" : "View your favs"}
