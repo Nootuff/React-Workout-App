@@ -5,21 +5,24 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import Box from '@mui/material/Box';
 
 function SearchForm(props) {
 
 
 
     return (
-        <form onSubmit={(event) => {
+       
+        <form 
+         sx={{ border: "1px solid red", width: 500  }}
+        onSubmit={(event) => {
             event.preventDefault();
             props.handleSubmit(props.values, props.searchByHolder, props.searchTermHolder);
             if (props.values.searchTerm !== "") { props.setLoading(true); }
         }}>
-            <InputLabel htmlFor="searchBy">Search by: </InputLabel>
+            <InputLabel id="demo-simple-select-label">waoudh</InputLabel>
             <Select /*Can this be self closing?*/
-                
+                sx={{ border: "1px solid red", width: 500  }}
                 id="demo-simple-select"
                 name="searchBy"
                 value={props.values.searchBy}
@@ -38,19 +41,27 @@ function SearchForm(props) {
                 label="SearchTerm"
             >
             </input> */}
+            <br />
+            
             <TextField
-                id="standard-basic"
-                label="Standard"
-                variant="standard"
+               id="outlined-basic"
+                label="Outlined"
+                variant="outlined"
                 value={props.values.searchTerm}
                 onChange={props.handleChange}
                 name="searchTerm"
                 label="Search"
+                sx={{ border: "1px solid red", width: 500 }}
             />
             <button>
                 submit
             </button>
         </form>
+
+ 
+
+
+       
     )
 }
 

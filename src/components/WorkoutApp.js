@@ -3,13 +3,13 @@ import ResultList from "./ResultList";
 import FavsList from "./FavsList";
 import Loading from "./Loading";
 import Pagination from './Pagination';
-//import Result from "./Result";
 import SearchForm from "./SearchForm";
 import Header from "./Header";
 import useInputState from "../hooks/useInputState";
 import useSearch from "../hooks/useSearch";
 import useLocalStorageState from "../hooks/useLocalStorageState";
 import useToggle from "../hooks/useToggle";
+
 //import useLoading from "../hooks/useLoading";
 
 function WorkoutApp() {
@@ -65,8 +65,6 @@ function WorkoutApp() {
     );
     */
 
-    
- 
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -104,13 +102,9 @@ function WorkoutApp() {
     return (
         <div>
             <Header favsMode={favsMode} setFavsMode={setFavsMode} paginate={paginate} />
-            {/*<button onClick={() => { setFavsMode(!favsMode); paginate(1) }}>Change Favs Mode</button>*/}
-
             {(favsMode) ? favsList :
-
                 <div>
                     {/*placeholderPrint*/}
-
                     <SearchForm
                         handleChange={handleChangeFunc}
                         handleSubmit={handleSubmitFunc}

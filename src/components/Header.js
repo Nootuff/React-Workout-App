@@ -6,8 +6,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { blue, red } from '@mui/material/colors';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 function Header({ favsMode, setFavsMode, paginate }) {
+
+    const header = createTheme({
+        typography: {
+            fontFamily: "'Black Ops One', cursive",
+        },
+    })
 
     return (
 
@@ -20,12 +27,14 @@ function Header({ favsMode, setFavsMode, paginate }) {
                 }}
                 position="static">
                 <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        weightForm
-                    </Typography>
+                    <ThemeProvider theme={header}>
+                        <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+                            weightForm
+                        </Typography>
+                    </ThemeProvider>
                     <Button
                         sx={{
-                            backgroundColor: (favsMode) ?  red[800] :  blue[500],
+                            backgroundColor: (favsMode) ? red[800] : blue[500],
                             color: "#FFFEFE",
                             textAlign: "left"
                         }}
