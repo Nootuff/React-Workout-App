@@ -16,12 +16,14 @@ function Header({ favsMode, setFavsMode, paginate }) {
         },
     })
 
+
+
     return (
 
         <Box sx={{ flexGrow: 1 }}>
             <AppBar
                 sx={{
-                    backgroundColor: "#1c1c1c",
+                    bgcolor: "#1c1c1c",
                     color: "#FFFEFE",
                     textAlign: "left"
                 }}
@@ -34,11 +36,14 @@ function Header({ favsMode, setFavsMode, paginate }) {
                     </ThemeProvider>
                     <Button
                         sx={{
-                            backgroundColor: (favsMode) ? red[800] : blue[500],
+                            bgcolor: (favsMode) ? red[700] : blue[500],
                             color: "#FFFEFE",
-                            textAlign: "left"
+                            textAlign: "left",
+                            ':hover': {
+                                bgcolor: (favsMode) ? red[900] : ""
+                              },
                         }}
-                        variant="outlined"
+                        variant="contained"
                         onClick={() => { setFavsMode(!favsMode); paginate(1) }}
                     >
                         {(favsMode) ? "Back to search" : "View your favs"}

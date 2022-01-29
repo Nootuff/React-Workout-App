@@ -90,7 +90,7 @@ function Result(props) {
           <Typography paragraph><b>Equipment required:</b> {capitalizer(props.data.equipment)}</Typography>
           <Box textAlign='center'>
             {(favdStatus) ? <Button
-              sx={{ backgroundColor: red[800], ':hover': {backgroundColor: red[900]} }}
+              sx={{ bgcolor: red[700], ':hover': {bgcolor: red[900]} }}
               variant="contained"
               onClick={() => { props.remove(props.data); setFavdStatus(false); }}>
               Remove from Favs

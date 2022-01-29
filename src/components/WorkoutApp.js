@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import Pagination from './Pagination';
 import SearchForm from "./SearchForm";
 import Header from "./Header";
+import Footer from "./Footer";
 import useInputState from "../hooks/useInputState";
 import useSearch from "../hooks/useSearch";
 import useLocalStorageState from "../hooks/useLocalStorageState";
@@ -115,6 +116,7 @@ function WorkoutApp() {
                 </div>
             }
             {pagination}
+            <Footer />
         </div>
     )
 }
