@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const initialSearchTerms = {
     searchTerm: "",
-    searchBy: "name"
+    searchBy: ""//"name"
 };
 
 export default input => {

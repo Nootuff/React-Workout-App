@@ -10,8 +10,6 @@ import useSearch from "../hooks/useSearch";
 import useLocalStorageState from "../hooks/useLocalStorageState";
 import useToggle from "../hooks/useToggle";
 
-//import useLoading from "../hooks/useLoading";
-
 function WorkoutApp() {
 
     const [values, searchByHolder, searchTermHolder, handleChangeFunc] = useInputState();
@@ -114,7 +112,6 @@ function WorkoutApp() {
                         values={values}
                     />
                     {(loading) ? <Loading /> : <div>{resultList}</div>}
-
                 </div>
             }
             {pagination}

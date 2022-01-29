@@ -16,6 +16,7 @@ import { red } from '@mui/material/colors';
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
 
 import '../styles/Result.css';
 
@@ -52,9 +53,16 @@ function Result(props) {
   };
 
   return (
+    <li 
+    //disablePadding
+    style={{marginBottom: "10px"}}
+    >
     <Card
       id={props.data.id}
-      sx={{ maxWidth: 345, margin: "auto", textAlign: "left", border: "1px solid grey", mb: "10px" }}>
+      className="Result"
+      raised
+      sx={{ maxWidth: 400, textAlign: "left", mb: "30px", margin: "auto"}}
+      >
       <CardActions disableSpacing>
         <CardHeader
           sx={{ width: "100%" }}
@@ -97,6 +105,7 @@ function Result(props) {
         </CardContent>
       </Collapse>
     </Card>
+    </li>
   );
 }
 

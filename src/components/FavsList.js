@@ -1,5 +1,6 @@
 import Result from "./Result";
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 function FavsList({ data, remove }) {
 
@@ -13,8 +14,10 @@ function FavsList({ data, remove }) {
 
     return (
         <Box>
-            <h1>FavsList Component</h1>
-            <ul>
+            <Typography variant="h5" >
+                Your Saved Exercises
+            </Typography>
+            <ul style={{ listStyleType: "none", padding: "0" }}>
                 {favsList}
             </ul>
         </Box>
