@@ -10,60 +10,15 @@ import useInputState from "../hooks/useInputState";
 import useSearch from "../hooks/useSearch";
 import useLocalStorageState from "../hooks/useLocalStorageState";
 import useToggle from "../hooks/useToggle";
+import '../styles/WorkoutApp.css';
 
 function WorkoutApp() {
-
     const [values, searchByHolder, searchTermHolder, handleChangeFunc] = useInputState();
-
     const [result, searchTags, show, loading, handleSubmitFunc, setLoading] = useSearch();
-
     const [favs, saveFunc, removeFunc] = useLocalStorageState();
-
     const [favsMode, setFavsMode] = useToggle();
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(5);
-
-    //const [loading] = useLoading();
-
-    /*
-    const [placeholder, setPlaceholder] = useState(
-        [
-            {
-                "bodyPart": "waist",
-                "equipment": "body weight",
-                "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/3204.gif",
-                "id": "3204",
-                "name": "arms overhead full sit-up (male)",
-                "target": "abs"
-            },
-            {
-                "bodyPart": "upper arms",
-                "equipment": "band",
-                "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/0986.gif",
-                "id": "0986",
-                "name": "band one arm overhead biceps curl",
-                "target": "biceps"
-            },
-            {
-                "bodyPart": "shoulders",
-                "equipment": "band",
-                "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1012.gif",
-                "id": "1012",
-                "name": "band twisting overhead press",
-                "target": "delts"
-            }
-        ]
-    );
-
-    const placeholderPrint = placeholder.map((value) =>
-        <Result
-            data={value}
-            save={saveFunc}
-           remove={removeFunc}
-        />
-    );
-    */
-
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -71,9 +26,9 @@ function WorkoutApp() {
     const currentPosts = result.slice(indexOfFirstPost, indexOfLastPost);
     const currentFavs = favs.slice(indexOfFirstPost, indexOfLastPost);
 
-    const favsList = (favs.length) ? <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>;
+    const favsList = (favs.length) ? <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>; //Make this a component
 
-    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1> //If no results have been generated, show this text. 
+    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1> //Make this a copmonent If no results have been generated, show this text. 
 
     const paginate = (pageNumber) => { //See if this function can be moved to a hook. 
         setCurrentPage(pageNumber) 
@@ -101,9 +56,9 @@ function WorkoutApp() {
     return (
         <div>
             <Header favsMode={favsMode} setFavsMode={setFavsMode} paginate={paginate} />
+           <div className='wrapper'>
             {(favsMode) ? favsList :
                 <div>
-                    {/*placeholderPrint*/}
                     <SearchForm
                         handleChange={handleChangeFunc}
                         handleSubmit={handleSubmitFunc}
@@ -115,6 +70,7 @@ function WorkoutApp() {
                     {(loading) ? <Loading /> : <div>{resultList}</div>}
                 </div>
             }
+            </div>
             {pagination}
             <Footer />
         </div>

@@ -1,21 +1,12 @@
-
-
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { blue, red } from '@mui/material/colors';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import Link from '@mui/material/Link';
 import '../styles/Footer.css';
 
 function Footer() {
-
     return (
-
         <Box className="Footer" >
             <nav id="footerNav">
                 <table id="footerTable">

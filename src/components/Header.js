@@ -16,10 +16,7 @@ function Header({ favsMode, setFavsMode, paginate }) {
         },
     })
 
-
-
     return (
-
         <Box sx={{ flexGrow: 1 }}>
             <AppBar
                 sx={{

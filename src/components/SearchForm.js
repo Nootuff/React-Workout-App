@@ -8,7 +8,7 @@ import Select from '@mui/material/Select';
 import Paper from '@mui/material/Paper'
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import '../styles/FormStyles.css';
+import '../styles/SearchForm.css';
 
 function SearchForm(props) {
 
