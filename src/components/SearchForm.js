@@ -14,14 +14,14 @@ function SearchForm(props) {
 
     return (
         <Paper
-            className="FormPaper"
+            className="Form-paper"
             elevation={5}
         >
             <Typography variant="h5" >
-                Search For Exercises
+                Enter a search term
             </Typography>
             <form
-                className="FormForm"
+                className="Form"
             >
                 <FormControl margin="normal" required fullWidth>
                     <InputLabel >Search By</InputLabel>

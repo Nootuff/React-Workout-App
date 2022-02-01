@@ -28,7 +28,7 @@ function WorkoutApp() {
 
     const favsList = (favs.length) ? <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} /> : <p>You currently have no favourited exercises</p>; //Make this a component
 
-    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : <h1>Please enter a search term</h1> //Make this a copmonent If no results have been generated, show this text. 
+    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults= {result.length} save={saveFunc} remove={removeFunc} /> : null; //Make this a copmonent If no results have been generated, show this text. 
 
     const paginate = (pageNumber) => { //See if this function can be moved to a hook. 
         setCurrentPage(pageNumber) 
@@ -39,15 +39,15 @@ function WorkoutApp() {
 
     if (!favsMode) { //Display normal result paginator
        if(!show){
-        pagination = "null";
+        pagination = null;
        } else if(result.length === 0){
-        pagination = "null";
+        pagination = null;
        } else {
         pagination = <Pagination postsPerPage={postsPerPage} totalPosts={result.length} paginate={paginate} currentPage={currentPage} /> //Got to be some way to make this more elegant. 
        }
     } else if (favsMode) { //favsMode paginator
         if (favs.length === 0) {
-            pagination = "null";
+            pagination = null;
         } else {
             pagination = <Pagination postsPerPage={postsPerPage} totalPosts={favs.length} paginate={paginate} currentPage={currentPage} />
         }

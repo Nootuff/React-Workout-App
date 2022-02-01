@@ -36,11 +36,11 @@ function Result(props) {
   const [expanded, setExpanded] = React.useState(false);
   const [favdStatus, setFavdStatus] = useState(false);
 
-  const [favs] = useLocalStorageState(); //Imports the favd exercises in localStorage so it ca 
+  const [favs] = useLocalStorageState(); //Imports the fav'd exercises in localStorage so this component can check if they are fav'd & determine which button to render. 
 
   const capitalizer = (input) => input.charAt(0).toUpperCase() + input.slice(1);
 
-  useEffect(() => { // Can the for loop & the favdStatus  be moved to a hook?
+  useEffect(() => { 
     for (let i = 0; i < favs.length; i++) {
       if (favs[i].id === props.data.id) {
         setFavdStatus(true)
@@ -53,58 +53,58 @@ function Result(props) {
   };
 
   return (
-    <li 
-    //disablePadding
-    style={{marginBottom: "10px"}}
-    >
-    <Card
-      id={props.data.id}
+    <li
+    id={props.data.id}
       className="Result"
-      raised
-      sx={{ maxWidth: 400, textAlign: "left", mb: "30px", margin: "auto"}}
+      
+    
+    >
+      <Card className="Result-card"
+        raised
       >
-      <CardActions disableSpacing>
-        <CardHeader
-          sx={{ width: "100%" }}
-          action={
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon />
-            </ExpandMore>
-          }
-          title={capitalizer(props.data.name)} />
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <CardMedia
-            component="img"
-            //height="194"
-            image={props.data.gifUrl}
-            alt="Exercise title here"
-          />
-          <Typography paragraph><b>Target:</b> {capitalizer(props.data.target)}</Typography>
-          <Typography paragraph><b>Equipment required:</b> {capitalizer(props.data.equipment)}</Typography>
-          <Box textAlign='center'>
-            {(favdStatus) ? <Button
-              sx={{ bgcolor: red[700], ':hover': {bgcolor: red[900]} }}
-              variant="contained"
-              onClick={() => { props.remove(props.data); setFavdStatus(false); }}>
-              Remove from Favs
-            </Button>
-              :
-              <Button
+        <CardActions disableSpacing>
+          <CardHeader
+          className="Result-header"
+            sx={{padding: "0"}}
+            action={
+              <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              >
+                <ExpandMoreIcon />
+              </ExpandMore>
+            }
+            title={capitalizer(props.data.name)} />
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <CardMedia
+              component="img"
+              //height="194"
+              image={props.data.gifUrl}
+              alt="Exercise title here"
+            />
+            <Typography paragraph><b>Target:</b> {capitalizer(props.data.target)}</Typography>
+            <Typography paragraph><b>Equipment required:</b> {capitalizer(props.data.equipment)}</Typography>
+            <Box textAlign='center'>
+              {(favdStatus) ? <Button
+                sx={{ bgcolor: red[700], ':hover': { bgcolor: red[900] } }}
                 variant="contained"
-                onClick={() => { props.save(props.data); setFavdStatus(true); }}>
-                Save to favs
-              </Button>}
-          </Box>
-        </CardContent>
-      </Collapse>
-    </Card>
+                onClick={() => { props.remove(props.data); setFavdStatus(false); }}>
+                Remove from Favs
+              </Button>
+                :
+                <Button
+                  variant="contained"
+                  onClick={() => { props.save(props.data); setFavdStatus(true); }}>
+                  Save to favs
+                </Button>}
+            </Box>
+          </CardContent>
+        </Collapse>
+      </Card>
     </li>
   );
 }

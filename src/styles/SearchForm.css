@@ -1,10 +1,21 @@
-.FormPaper{
-    width: 40%;
-    margin: 20px auto;
-    padding: 10px;
+.Form-paper{
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px 0;
 }
 
-.FormForm{
-    width: 80%;
+.Form{
+ width: 90%;
   margin: auto; 
+  
+}
+
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .Form-paper{
+    width: 40%; 
+    padding: 20px 0;
+  }
+  
 }
