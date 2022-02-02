@@ -10,17 +10,19 @@ function Footer() {
         <Box className="Footer" >
             <nav id="footerNav">
                 <table id="footerTable">
-                    <tr>
-                        <td className="footerItem">
-                            <Typography color="white" > <CopyrightIcon fontSize="inherit" /> Adam Walker 2022</Typography>
-                        </td>
-                        <td className="footerItem">
-                            <Typography><Link href="https://nootuff.github.io/" underline="none" color="white" target="_blank">My portfolio</Link></Typography>
-                        </td>
-                        <td className="footerItem">
-                            <Typography><Link href="https://github.com/Nootuff/React-Workout-App" color="white" underline="none" target="_blank">View site code on GitHub <GitHubIcon fontSize="inherit" /></Link></Typography>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td className="footerItem">
+                                <Typography color="white" > <CopyrightIcon fontSize="inherit" /> Adam Walker 2022</Typography>
+                            </td>
+                            <td className="footerItem">
+                                <Typography><Link href="https://nootuff.github.io/" underline="none" color="white" target="_blank">My portfolio</Link></Typography>
+                            </td>
+                            <td className="footerItem">
+                                <Typography><Link href="https://github.com/Nootuff/React-Workout-App" color="white" underline="none" target="_blank">View site code on GitHub <GitHubIcon fontSize="inherit" /></Link></Typography>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </nav>
         </Box>

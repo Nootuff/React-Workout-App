@@ -1,10 +1,9 @@
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { blue, red } from '@mui/material/colors';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import '../styles/Header.css';
 
 function Header({ favsMode, setFavsMode, paginate }) {
@@ -23,10 +22,10 @@ function Header({ favsMode, setFavsMode, paginate }) {
                         flexGrow: 1, 
                         fontFamily: "'Black Ops One', cursive",  
                         [defaultTheme.breakpoints.only("xs")]: {
-                            fontSize: "1rem",
+                            fontSize: "1.5rem",
                         },
                         [defaultTheme.breakpoints.only("sm")]: {
-                            fontSize: "2rem",
+                            fontSize: "2.7rem",
                         },
                         [defaultTheme.breakpoints.only("lg")]: {
                             fontSize: "3.5rem",
@@ -43,14 +42,11 @@ function Header({ favsMode, setFavsMode, paginate }) {
                         color: "#FFFEFE",
                        
                         [defaultTheme.breakpoints.only("xs")]: {
-                            fontSize: "0.2rem",
+                            fontSize: "0.7rem",
                             padding: "4px 11px",
                         },
-                        [defaultTheme.breakpoints.only("sm")]: {
-                            fontSize: "0.5rem",
-                        },
                         [defaultTheme.breakpoints.only("lg")]: {
-                            fontSize: "1rem",
+                            fontSize: "0.8rem",
                             padding: "6px 13px"
                         },
                         textAlign: "left",

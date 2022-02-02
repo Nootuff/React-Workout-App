@@ -13,7 +13,7 @@ function ResultList({ data, searchTags, numResults, save, remove }) {
         />
     );
 
-    const message = (data === "") ? null : <p>{(!data.length) ? "Sorry, " : null}<b>{numResults}</b> results for exercises {(searchTags.searchedBy === "name") ? "containing the word:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</p>; //If there are no results of the search, render this custom message. 
+    const message = (data === "") ? null : <p>{(!data.length) ? "Sorry, " : null}<b>{numResults}</b> result{(data.length === 1) ? null : "s"} for exercises {(searchTags.searchedBy === "name") ? "containing the word:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</p>; //If there are no results of the search, render this custom message. 
 
     return (
         <div >

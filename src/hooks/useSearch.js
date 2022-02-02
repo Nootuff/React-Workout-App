@@ -18,6 +18,7 @@ export default search => {
    const apiHolder = process.env.REACT_APP_RAPIDAPI_KEY;
 
     const handleSubmitFunc = (valuesParam, searchByParam, searchTermParam) => { //Activates on form submission, the parameters are being passed in all the way from useInputState where they were set by handleChangeFunc and passed back to WorkoutApp.
+
         setShow(true)
 
         const options = {
