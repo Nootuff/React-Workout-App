@@ -17,8 +17,8 @@ function SearchForm(props) {
             className="Form-paper"
             elevation={5}
         >
-            <Typography variant="h5" >
-                Enter a search term
+            <Typography variant="h5" component='div' sx={{width: "85%", margin: "auto" }}>
+            Search for an exercise by <b>name</b>, <b>muscle group</b> or <b>equipment used</b>.
             </Typography>
             <form
                 className="Form"
@@ -48,13 +48,11 @@ function SearchForm(props) {
                 </FormControl>
                 <Button
                     variant={(props.values.searchTerm === "" || props.values.searchBy === "") ? "disabled" : "contained"}
-
                     onClick={(event) => {
                         event.preventDefault();
                         props.handleSubmit(props.values, props.searchByHolder, props.searchTermHolder);
                         if (props.values.searchTerm !== "") { props.setLoading(true); }
                     }}
-
                 >
                     submit
                 </Button>

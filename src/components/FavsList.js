@@ -15,7 +15,7 @@ function FavsList({ data, remove }) {
     return (
         <Box sx={{mt: "50px"}}>
             <Typography variant="h5" sx={{mb: "40px"}}>
-            You have {(data.length )} saved exercise{(data.length === 1 ) ? null : "s"}
+            {(data.length) ? "Your saved exercises" : "You have no saved exercises"}
             </Typography>
             <ul style={{ listStyleType: "none", padding: "0" }}>
                 {favsList}

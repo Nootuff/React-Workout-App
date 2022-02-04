@@ -6,7 +6,7 @@ import { blue, red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 import '../styles/Header.css';
 
-function Header({ favsMode, setFavsMode, paginate }) {
+function Header({ favsMode, setFavsMode, setPage }) {
     
     const defaultTheme = createTheme();
 
@@ -16,7 +16,6 @@ function Header({ favsMode, setFavsMode, paginate }) {
             sx={{ bgcolor: "#1c1c1c",  color: "#FFFEFE" }}
             position="static">
             <Toolbar>
-               
                     <Typography variant="h3" component="div" className="Header-logo" 
                     sx={{ 
                         flexGrow: 1, 
@@ -30,11 +29,9 @@ function Header({ favsMode, setFavsMode, paginate }) {
                         [defaultTheme.breakpoints.only("lg")]: {
                             fontSize: "3.5rem",
                         }
-                
                 }}>
                         weightForm
                     </Typography>
-           
                 <Button
                 className="Header-button"
                     sx={{
@@ -55,7 +52,7 @@ function Header({ favsMode, setFavsMode, paginate }) {
                         },
                     }}
                     variant="contained"
-                    onClick={() => { setFavsMode(!favsMode); paginate(1) }}
+                    onClick={() => { setFavsMode(!favsMode); /*paginate(1)*/ setPage(1) }}
                 >
                     {(favsMode) ? "Back to search" : "View your favs"}
                 </Button>
