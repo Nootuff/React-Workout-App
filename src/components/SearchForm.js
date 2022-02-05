@@ -49,7 +49,7 @@ function SearchForm(props) {
                     onClick={(event) => {
                         event.preventDefault();
                         props.handleSubmit(props.values, props.searchByHolder, props.searchTermHolder);
-                        if (props.values.searchTerm !== "") { props.setLoading(true);}
+                        if (props.values.searchTerm !== "") { props.setLoading(true);} //Activate the loading animation. 
                     }}
                 >
                     submit

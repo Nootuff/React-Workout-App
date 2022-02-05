@@ -52,7 +52,7 @@ function Header({ favsMode, setFavsMode, setPage }) {
                         },
                     }}
                     variant="contained"
-                    onClick={() => { setFavsMode(!favsMode); /*paginate(1)*/ setPage(1) }}
+                    onClick={() => { setFavsMode(!favsMode); setPage(1);}}
                 >
                     {(favsMode) ? "Back to search" : "View your favs"}
                 </Button>

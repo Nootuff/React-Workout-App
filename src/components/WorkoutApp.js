@@ -12,53 +12,45 @@ import useLocalStorageState from "../hooks/useLocalStorageState";
 import useToggle from "../hooks/useToggle";
 import '../styles/WorkoutApp.css';
 
-function WorkoutApp() {
+function WorkoutApp(){
     const [values, searchByHolder, searchTermHolder, handleChangeFunc] = useInputState();
     const [result, searchTags, show, loading, handleSubmitFunc, setLoading] = useSearch();
     const [favs, saveFunc, removeFunc] = useLocalStorageState();
     const [favsMode, setFavsMode] = useToggle();
-    const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(10);
 
-    const [page, setPage] = React.useState(1); //Mui
+    const [itemsPerPage] = useState(10); //Sets number of items that can appear on each page. 
+    const [page, setPage] = React.useState(1); 
 
-    const indexOfLastPost = page * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = result.slice(indexOfFirstPost, indexOfLastPost);
-    const currentFavs = favs.slice(indexOfFirstPost, indexOfLastPost);
-    let pagination;// = <Pagination /*postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} */ />;
+    const indexOfLastItem = page * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentResults = result.slice(indexOfFirstItem, indexOfLastItem);
+    const currentFavs = favs.slice(indexOfFirstItem, indexOfLastItem);
+    let pagination;
 
-    /*
-    const paginate = ( page) => {
-        setCurrentPage(page)
-        console.log("paginate func: page number is: " + page)
-    }
-    */
-
-    if (!favsMode) { //If site isn't set to favsmode, display normal result paginator.
+    if (!favsMode) { //If site isn't set to favsMode, display normal result paginator.
         if (!show) {
             pagination = null;
         } else if (result.length === 0) {
             pagination = null;
         } else {
-            pagination = <DataPagination postsPerPage={postsPerPage} totalPosts={result.length} /*paginate={paginate} currentPage={currentPage} */ page={page}  setPage={setPage} /> //Got to be some way to make this more elegant. 
+            pagination = <DataPagination itemsPerPage={itemsPerPage} totalItems={result.length} page={page} setPage={setPage} /> 
         }
     } else if (favsMode) { //Display favsMode paginator.
         if (favs.length === 0) {
             pagination = null;
         } else {
-            pagination = <DataPagination postsPerPage={postsPerPage} totalPosts={favs.length} /*paginate={paginate} currentPage={currentPage} */page={page}  setPage={setPage}/>
+            pagination = <DataPagination itemsPerPage={itemsPerPage} totalItems={favs.length} page={page} setPage={setPage}/>
         }
     }
 
     const favsList = <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} />
 
-    const resultList = (show) ? <ResultList data={currentPosts} searchTags={searchTags} numResults={result.length} save={saveFunc} remove={removeFunc} /> : null; //In case the search is somehose submitted without entering a search term, the result list will not be rendered preventing an error. 
+    const resultList = (show) ? <ResultList data={currentResults} searchTags={searchTags} numResults={result.length} save={saveFunc} remove={removeFunc} /> : null; //In case the search is somehose submitted without entering a search term, the result list will not be rendered preventing an error. 
 
     return (
         <div>
-            <Header favsMode={favsMode} setFavsMode={setFavsMode} /*paginate={paginate}*/ page={page}  setPage={setPage}/>
-            <div className='wrapper'>
+            <Header favsMode={favsMode} setFavsMode={setFavsMode} page={page} setPage={setPage}/>
+            <div className='WorkoutApp-wrapper'>
                 {(favsMode) ? favsList :
                     <div>
                         <SearchForm

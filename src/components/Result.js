@@ -85,7 +85,7 @@ function Result(props) {
             <Typography paragraph><b>Body part used:</b> {capitalizer(props.data.bodyPart)}</Typography>
             <Typography paragraph><b>Equipment required:</b> {capitalizer(props.data.equipment)}</Typography>
             <Box textAlign='center'>
-              {(favdStatus) ? <Button
+              {(favdStatus) ? <Button //Which button is rendered is determined by whether the ID of this exercise appeared in the imported favs. If this exercise is already fav'd a "remove" button will be rendered. 
                 sx={{ bgcolor: red[700], ':hover': { bgcolor: red[900] } }}
                 variant="contained"
                 onClick={() => { props.remove(props.data); setFavdStatus(false); }}
