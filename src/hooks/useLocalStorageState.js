@@ -10,7 +10,7 @@ export default save => {
     }
     
     const removeFunc = (value) => { 
-        let newFavs = favs.filter(test => test.id !== value.id) //A new favs array is created via filtering ids from all the existing favs that DON'T match the id of the fav whose "remove" button was pressed. 
+        let newFavs = favs.filter(fav => fav.id !== value.id) //A new favs array is created via filtering ids from all the existing favs that DON'T match the id of the fav whose "remove" button was pressed. 
         setFavs(newFavs)
         window.localStorage.setItem('favExercises', JSON.stringify(newFavs));
     }
