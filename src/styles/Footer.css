@@ -1,31 +1,33 @@
 .Footer {
   height: 100px; 
-  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1c1c1c;
 }
 
-  .footerItem:not(:first-child) {
-    border-left: 1px solid white;
-  }
+.footerText {
+  font-size: 13px!important;
+}
+
+.footerItem:not(:first-child) {
+  border-left: 1px solid white;
+}
   
-  nav table {
-    margin: auto;
-  }
+nav table {
+  margin: auto;
+}
   
-  nav td {
-    color: var(--white-color);
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+nav td {
+  color: var(--white-color);
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 
 @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .Footer {
-        font-size: 17px;
-        text-align: left;
-      }
+  /* For desktop: */
+  .footerText {
+    font-size: 15px!important;
+  }  
 }

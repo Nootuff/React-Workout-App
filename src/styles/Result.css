@@ -1,24 +1,24 @@
-.Result{
-  width: 90%; 
+.Result {
+  width: 90%;
   text-align: left;
   margin: 13px auto 0;
 }
 
-.Result-header{   
+.Result-header {
   width: 100%;
 }
 
-.Result-card{
+.Result-card {
   padding: 10px 5px;
 }
 
 @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .Result{
-        width: 35%; 
-    }
-
-    .Result-card{
-        padding: 10px 15px;
-    }
+  /* For desktop: */
+  .Result {
+    width: 35%;
   }
+
+  .Result-card {
+    padding: 10px 15px;
+  }
+}

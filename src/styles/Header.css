@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Comforter&display=swap");
 
-.Header{
+.Header {
   text-align: left;
   padding: 2px 0;
 }
 
 @media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .Header{
-      padding: 10px 0;
-    }
+  /* For desktop: */
+  .Header {
+    padding: 10px 0;
+  }
 }
-
