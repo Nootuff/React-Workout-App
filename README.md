@@ -4,7 +4,7 @@
 ![Site image]( https://raw.githubusercontent.com/Nootuff/Nootuff.github.io/master/imgs/weightForm-imgs/weightForm-img-1.png)
 
 ## Features
-- Customisable search function built using an HTTP request system that uses Axios, connected to an endpoint on the [ExerciseDB](ExerciseDBhttps://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) API hosted on [RapidAPI](https://rapidapi.com/) to allow users to search this API for exercise data.
+- Customisable search function built using an HTTP request system that uses [Axios](https://axios-http.com/docs/intro), connected to an endpoint on the [ExerciseDB](ExerciseDBhttps://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) API hosted on [RapidAPI](https://rapidapi.com/) to allow users to search this API for exercise data.
 - Save feature that will save any selected result to localStorage. 
 - Animated exercise demonstrations.
 - Full data pagination to break up results into multiple pages.
