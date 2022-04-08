@@ -6,7 +6,7 @@ export default save => {
     const saveFunc = (value) => { 
         let favsHolder = [...favs, value] //This const holds all of the existing favs and the the newly fav'd exercise (value).
         setFavs(favsHolder) //It is set as the new value of "favs".
-        window.localStorage.setItem('favExercises', JSON.stringify(favsHolder)); //favsHolder is then send to localStorage.
+        window.localStorage.setItem('favExercises', JSON.stringify(favsHolder)); //favsHolder is then sent to localStorage.
     }
     
     const removeFunc = (value) => { 

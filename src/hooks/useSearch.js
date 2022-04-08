@@ -31,7 +31,6 @@ export default search => {
             return axios.request(options).then(function (response) { //Response is the argument to hold the actual returned results from the axios.request.
                 setResult(response.data); //The results of the axios reqeust is set to state.
                 setSearchTags({ searchedTerm: valuesParam.searchTerm, searchedBy: valuesParam.searchBy }); //The search term and search by are saved to the searchTags to be used in the result message. 
-                //console.log(response.data);
                 setLoading(false); //Deactivate the loading animation.
             }).catch(function (error){
                 setResult([]); //Sets result to an empty array so this can be detected in the results list & used to determine whether const message should be rendered. 

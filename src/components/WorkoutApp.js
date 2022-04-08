@@ -45,7 +45,7 @@ function WorkoutApp() {
 
   const favsList = <FavsList data={currentFavs} save={saveFunc} remove={removeFunc} />
 
-  const resultList = (show) ? <ResultList data={currentResults} searchTags={searchTags} numResults={result.length} save={saveFunc} remove={removeFunc} /> : null; //In case the search is somehose submitted without entering a search term, the result list will not be rendered preventing an error. 
+  const resultList = (show) ? <ResultList data={currentResults} searchTags={searchTags} numResults={result.length} save={saveFunc} remove={removeFunc} /> : null; //In case the search is somehow submitted without entering a search term, the result list will not be rendered preventing an error. 
 
   return (
     <div>
