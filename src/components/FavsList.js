@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 function FavsList({ data, remove }) {
 
-  const favsList = data.map((value) =>
+  const favsList = data.slice(0).reverse().map((value) =>
     <Result
       data={value}
       key={value.id}
