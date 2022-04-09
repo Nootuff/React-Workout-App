@@ -18,4 +18,4 @@
 
 
 ## Credits
-Massive thanks to **Justin Mozley**(https://rapidapi.com/user/justin-WFnsXH_t6) whose amazing workout API allowed me to create this project.
+Massive thanks to [**Justin Mozley**](https://rapidapi.com/user/justin-WFnsXH_t6) whose amazing workout API allowed me to create this project.
