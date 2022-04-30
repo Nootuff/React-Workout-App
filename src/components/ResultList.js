@@ -14,7 +14,7 @@ function ResultList({ data, searchTags, numResults, save, remove }) {
     />
   );
 
-  const message = (data === "") ? null : <Typography variant="h5" sx={{ width: "90%", margin: "auto" }}>{(!data.length) ? "Sorry, " : null}<b>{numResults}</b> result{(data.length === 1) ? null : "s"} for exercises {(searchTags.searchedBy === "name") ? "containing the word:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</Typography>; //Custom message tailored to search result.
+  const message = (data === "") ? null : <Typography variant="h5" sx={{ width: "90%", margin: "auto" }}>{(!data.length) ? "Sorry, " : null}<b>{numResults}</b> result{(data.length === 1) ? null : "s"} for exercises {(searchTags.searchedBy === "name") ? "containing:" : (searchTags.searchedBy === "target") ? "targetting" : "using a"}  <b>"{searchTags.searchedTerm}"</b>.</Typography>; //Custom message tailored to search result.
 
   return (
     <Box>
